@@ -2,6 +2,7 @@ import numpy as np
 
 class Perceptron:
     def __init__(self, num_inputs, learning_rate=0.01, num_epochs=100):
+        
         self.weights = np.zeros(num_inputs + 1)  # Add one for the bias weight
         self.learning_rate = learning_rate
         self.num_epochs = num_epochs
@@ -26,21 +27,21 @@ training_inputs = np.array([[0, 0],
                             [0, 1], 
                             [1, 0], 
                             [1, 1]])
+
 labels = np.array([0, 0, 0, 1])
 
 perceptron = Perceptron(num_inputs=2)
 perceptron.train(training_inputs, labels)
 
 # Test the trained perceptron
-inputs = np.array([1, 1])
+inputs = np.array([0,0])
 print(perceptron.predict(inputs))  # Output: 1
 
+inputs = np.array([0,1])
+print(perceptron.predict(inputs)) 
 
-
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
+inputs = np.array([1,0])
+print(perceptron.predict(inputs)) 
+ 
+inputs = np.array([1,1])
+print(perceptron.predict(inputs)) 
